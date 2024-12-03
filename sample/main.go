@@ -24,6 +24,7 @@ const (
 	configFilePath     = "./fix.conf"
 	apiKey             = "Pxz4iidJ9VUjLZ2NANaHjqHbRvqnn4N5qUt5CpmypOyW9hvKFHm3nv7IJwUX5tG8"
 	privateKeyFilePath = "./test_ed25519.pem"
+	dropCopyFlag       = "Y"
 )
 
 func main() {
@@ -41,7 +42,7 @@ func main() {
 	}
 	client, err := fix.NewClient(
 		context.Background(),
-		logger, conf, fix.WithZapLogFactory(logger),
+		logger, conf, fix.WithZapLogFactory(logger), fix.WithDropCopyFlagOpt(dropCopyFlag),
 	)
 	if err != nil {
 		logger.Panicw("Failed to init client", "err", err)
