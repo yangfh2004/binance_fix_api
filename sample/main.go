@@ -21,12 +21,15 @@ func SetupLogger() *zap.SugaredLogger {
 }
 
 const (
-	configFilePath     = "./fix.conf"
-	apiKey             = "Pxz4iidJ9VUjLZ2NANaHjqHbRvqnn4N5qUt5CpmypOyW9hvKFHm3nv7IJwUX5tG8"
-	privateKeyFilePath = "./test_ed25519.pem"
+	configFilePath = "./fix.conf"
+	apiKey         = "YOUR_API_KEY_FOR_FIX_API"
+	// Use your registered private key for Binance FIX API
+	privateKeyFilePath = "./ed25519.pem"
 	dropCopyFlag       = "Y"
 )
 
+// This is an example of how to use the Binance FIX API client for receiving drop-copy messages.
+// It subscribes to the ExecutionReport<8> message and prints the order details to the console.
 func main() {
 	logger := SetupLogger()
 	logger.Infow("This is an fix-client example")
